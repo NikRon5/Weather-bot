@@ -1,8 +1,6 @@
 import sys
 import unittest
 
-from marshmallow.fields import Integer
-
 from bot.config import weather_api_key
 from bot.weatherapi import WeatherApi
 
