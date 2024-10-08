@@ -19,6 +19,9 @@ class GeocodeApi:
 
     # Parsing and returning addresses and coords for founded cities
     def get_cities(self, city):
+        if type(city) is not str:
+            return []
+
         # Got data to json
         data = json.loads(self.__get_data(city).text)
 

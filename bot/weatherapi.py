@@ -11,7 +11,8 @@ class WeatherApi:
 
     # Getting weather forecast for coords
     def get_current_weather(self, coords):
-
+        if type(coords) is not list or len(coords) != 2:
+            return {}
         # Current - temperature, apparent temperature, pressure, clouds
         # Hourly - temperature
         # Daily - precipitation probability
@@ -26,6 +27,9 @@ class WeatherApi:
         }
         response = requests.get(self.__base_url, headers=self.__headers, params=params)
         data = json.loads(response.text)
+
+        if "error" in data:
+            return {}
 
         # Current time of the forecast
         current_time = datetime.fromisoformat(data["current"]["time"])
