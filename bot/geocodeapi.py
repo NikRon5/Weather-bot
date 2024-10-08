@@ -36,7 +36,6 @@ class GeocodeApi:
             # Only "locality", "district", "province" kinds are proper
             kind = base["metaDataProperty"]["GeocoderMetaData"]["kind"]
             if kind in ["locality", "district", "province"]:
-
                 # Getting coords and address
                 coords = base["Point"]["pos"]
                 address = base["metaDataProperty"]["GeocoderMetaData"]["Address"]["formatted"].replace("Россия, ", "")
